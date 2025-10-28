@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>HW9 –  Key Information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md bg-light border-bottom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/logo.png" alt="Site logo" width="32" height="32" class="me-2">
+        <span>HW9 Form</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <h1 class="mb-3">Information</h1>
+    <form action="review.html" method="get" novalidate class="needs-validation" aria-describedby="formHelp">
+      <div class="row g-3">
+        <!-- Name (required, autofocus) -->
+        <div class="col-12 col-md-6">
+          <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+          <input id="name" name="name" type="text" class="form-control" required autofocus
+                 aria-required="true" aria-describedby="nameHelp">
+          <div id="nameHelp" class="form-text">Enter your first and last name.</div>
+          <div class="invalid-feedback">Please enter your name.</div>
+        </div>
+
+        <!-- Email (required, built-in HTML5 validation) -->
+        <div class="col-12 col-md-6">
+          <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+          <div class="input-group">
+            <span class="input-group-text" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+            <input id="email" name="email" type="email" class="form-control" required aria-required="true">
+            <button class="btn btn-outline-secondary"
+                    type="button"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="We use your email only for confirmations.">
+              <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+              <span class="visually-hidden">Help</span>
+            </button>
+          </div>
+          <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <!-- Example select (required) -->
+        <div class="col-12 col-md-6">
+          <label for="topic" class="form-label">Topic <span class="text-danger">*</span></label>
+          <select id="topic" name="topic" class="form-select" required aria-required="true">
+            <option value="" selected disabled>Choose…</option>
+            <option value="support">Support</option>
+            <option value="sales">Sales</option>
+            <option value="feedback">Feedback</option>
+          </select>
+          <div class="invalid-feedback">Please select a topic.</div>
+        </div>
+
+        <!-- Optional message -->
+        <div class="col-12">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" name="message" class="form-control" rows="4"></textarea>
+        </div>
+      </div>
+
+      <hr class="my-4" />
+      <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary" href="index.html">Back</a>
+        <button class="btn btn-primary" type="submit">Review</button>
+      </div>
+
+      <p id="formHelp" class="visually-hidden">Form uses required fields, tooltips, and proper labels.</p>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Enable tooltips
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+      new bootstrap.Tooltip(el);
+    });
+
+    // Bootstrap client-side validation helper
+    (function () {
+      const form = document.querySelector('.needs-validation');
+      form.addEventListener('submit', (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    })();
+  </script>
+</body>
+</html>
